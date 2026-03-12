@@ -1,0 +1,90 @@
+export function scrollToIntro(Component): ComponentType {
+    return (props) => (
+        <Component
+            {...props}
+            onTap={() =>
+                document
+                    .getElementById("intro")
+                    ?.scrollIntoView({ behavior: "smooth", block: "start" })
+            }
+        />
+    )
+}
+
+export function scrollToKit(Component): ComponentType {
+    return (props) => (
+        <Component
+            {...props}
+            onTap={() =>
+                document
+                    .getElementById("quick-pit-stop")
+                    ?.scrollIntoView({ behavior: "smooth", block: "start" })
+            }
+        />
+    )
+}
+
+export function scrollToProcess(Component): ComponentType {
+    return (props) => (
+        <Component
+            {...props}
+            onTap={() =>
+                document
+                    .getElementById("process")
+                    ?.scrollIntoView({ behavior: "smooth", block: "start" })
+            }
+        />
+    )
+}
+
+export function scrollToProblems(Component): ComponentType {
+    return (props) => (
+        <Component
+            {...props}
+            onTap={() =>
+                document
+                    .getElementById("problems")
+                    ?.scrollIntoView({ behavior: "smooth", block: "start" })
+            }
+        />
+    )
+}
+
+export function scrollToSolutions(Component): ComponentType {
+    return (props) => (
+        <Component
+            {...props}
+            onTap={() =>
+                document
+                    .getElementById("solutions")
+                    ?.scrollIntoView({ behavior: "smooth", block: "start" })
+            }
+        />
+    )
+}
+
+export function scrollToTesting(Component): ComponentType {
+    return (props) => (
+        <Component
+            {...props}
+            onTap={() =>
+                document
+                    .getElementById("testing")
+                    ?.scrollIntoView({ behavior: "smooth", block: "start" })
+            }
+        />
+    )
+}
+
+export function scrollToCrew(Component): ComponentType {
+    return (props) => (
+        <Component
+            {...props}
+            onTap={() =>
+                document
+                    .getElementById("pit-crew")
+                    ?.scrollIntoView({ behavior: "smooth", block: "start" })
+            }
+        />
+    )
+}
