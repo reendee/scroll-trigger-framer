@@ -1,0 +1,41 @@
+import { useState, useEffect } from "react"
+import type { ComponentType } from "react"
+
+const sections = [
+    { name: "intro", variant: "intro" },
+    { name: "quick-pit-stop", variant: "kit" },
+    { name: "process", variant: "process" },
+    { name: "problems", variant: "problems" },
+    { name: "solutions", variant: "solutions" },
+    { name: "testing", variant: "testing" },
+    { name: "pit-crew", variant: "pit-crew" },
+]
+
+export function withTOCController(Component): ComponentType {
+    return (props) => {
+        const [variant, setVariant] = useState("intro")
+
+        useEffect(() => {
+            const handleScroll = () => {
+                for (const { name, variant: v } of sections) {
+                    const el = document.getElementById(name)
+                    if (!el) continue
+
+                    const rect = el.getBoundingClientRect()
+                    if (
+                        rect.top <= window.innerHeight * 0.4 &&
+                        rect.bottom >= window.innerHeight * 0.2
+                    ) {
+                        setVariant(v)
+                        break
+                    }
+                }
+            }
+
+            window.addEventListener("scroll", handleScroll)
+            return () => window.removeEventListener("scroll", handleScroll)
+        }, [])
+
+        return <Component {...props} variant={variant} />
+    }
+}
